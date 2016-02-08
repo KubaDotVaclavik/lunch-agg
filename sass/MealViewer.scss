@@ -1,0 +1,103 @@
+﻿@import "./utils.scss";
+
+@mixin pure-list{
+    padding: 0;
+    margin: 0;
+    li{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+@mixin horizontal-pure-list{
+    @include pure-list;
+    li{
+        display:inline;
+    }
+}
+@mixin centr{
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+*{
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.meals-list{
+    @include pure-list;
+    @include centr;
+
+    top: 94px;
+    position: relative;
+
+    li{
+        padding: 10px 15px;
+    }
+    .meal-title{
+        width:calc(100% - 70px);
+        float: left;
+    }
+    .meal-price{
+        float: right;
+        font-size:140%;
+    }
+
+    .tags-list{
+        @include horizontal-pure-list;
+        clear: both;
+        margin: 10px 0;
+
+        li{
+            margin-right: 5px;
+            &:last-child{
+                margin-right:0;
+            }
+
+            .tag{
+                font-weight:600;
+                font-size: 75%;
+                text-transform: uppercase;
+                padding: 2px 4px;
+                border: 1px solid navy;
+                border-radius:2px;
+            }
+        }
+
+    }
+}
+
+.meals-filter{
+    border-bottom: 1px solid #ddd;
+    z-index:10;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+
+    .filter-wrapper{
+        @include centr;
+
+        .input-wrapper{
+            width: 200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #bbb;
+            input{
+                width: 170px;
+                font-size: 140%;
+                border: none;
+            }
+            .search-icon{
+                width: 30px;
+                display: inline-block;
+            }
+        }
+
+    }
+}
